@@ -134,6 +134,230 @@
             .timeline-year { margin-bottom: 10px; padding-left: 30px; font-size: 1.5rem; }
             .timeline-content { padding-left: 30px; }
         }
+
+
+
+/* ==================== 
+   QUALITY POLICY SECTION (Responsive)
+==================== */
+
+.quality-policy-section {
+    padding: 80px 5%;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.policy-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* --- Text Column --- */
+.policy-text {
+    flex: 1 1 400px;
+}
+
+.policy-text .sub-heading {
+    color: #d32f2f;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.policy-text .main-heading {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 20px;
+}
+
+.policy-text p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.policy-list {
+    list-style: none;
+    padding: 0;
+}
+
+.policy-list li {
+    margin-bottom: 15px;
+    color: #444;
+    font-size: 1rem;
+    border-left: 3px solid #d32f2f;
+    padding-left: 15px;
+}
+
+/* --- Diagram Wrapper --- */
+.diagram-wrapper {
+    flex: 1 1 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ensures the wrapper doesn't overflow on small screens */
+    width: 100%; 
+    overflow: visible;
+}
+
+.diagram-container {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Smooth transition for resizing */
+    transition: transform 0.3s ease; 
+}
+
+/* Static Center Circle */
+.center-circle {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border: 4px solid #29a3b3;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #29a3b3;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Rotating Ring Container */
+.feathers-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: rotate-ring 30s linear infinite;
+}
+
+/* Individual Feathers */
+.feather {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* Feather Positions & Colors */
+.feather.top-left {
+    top: 10px; left: 10px;
+    background-color: #606062;
+}
+.feather.top-right {
+    top: 10px; right: 10px;
+    background-color: #8cc63f;
+}
+.feather.bottom-right {
+    bottom: 10px; right: 10px;
+    background-color: #dbb54a;
+}
+.feather.bottom-left {
+    bottom: 10px; left: 10px;
+    background-color: #29a3b3;
+}
+
+/* Text Counter-Rotation */
+.feather-text {
+    animation: counter-rotate-text 30s linear infinite;
+}
+
+/* --- Animations --- */
+@keyframes rotate-ring {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes counter-rotate-text {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+/* ==================== 
+   RESPONSIVE BREAKPOINTS 
+==================== */
+
+/* Tablet (Max Width: 992px) */
+@media screen and (max-width: 992px) {
+    .policy-container {
+        flex-direction: column-reverse; /* Image Top, Text Bottom */
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .policy-text {
+        flex: auto;
+        width: 100%;
+    }
+
+    .policy-list {
+        text-align: left; /* Keep list aligned left for readability */
+        display: inline-block; /* Centers the block itself */
+    }
+
+    .diagram-container {
+        transform: scale(0.85); /* Shrink slightly */
+    }
+}
+
+/* Mobile (Max Width: 600px) */
+@media screen and (max-width: 600px) {
+    .quality-policy-section {
+        padding: 50px 20px;
+    }
+
+    .diagram-container {
+        /* Significant shrink for mobile */
+        transform: scale(0.65); 
+        /* Negative margin to remove empty space caused by scaling */
+        margin-top: -60px;
+        margin-bottom: -60px; 
+    }
+    
+    .main-heading {
+        font-size: 1.8rem;
+    }
+
+    .policy-list li {
+        font-size: 0.95rem;
+    }
+}
+
+/* Small Mobile (Max Width: 380px) */
+@media screen and (max-width: 380px) {
+    .diagram-container {
+        transform: scale(0.55);
+        margin-top: -80px;
+        margin-bottom: -80px;
+    }
+}
     </style>
 </head>
 <body>
@@ -245,6 +469,51 @@
         </div>
 
     </section>
+
+    <section class="quality-policy-section">
+    <div class="policy-container">
+        
+        <div class="policy-text">
+            <span class="sub-heading">Our Core Values</span>
+            <h2 class="main-heading">Quality Policy</h2>
+            <p>
+                At Norden Techlab, our philosophy is built on core principles that drive our success 
+                and ensure the integrity of your products. We are dedicated to maintaining the highest 
+                standards in every test we conduct.
+            </p>
+            <ul class="policy-list">
+                <li><strong>Customer Satisfaction:</strong> Delivering precise results to meet client needs.</li>
+                <li><strong>Quality First:</strong> Uncompromising accuracy in every analysis.</li>
+                <li><strong>Permanent Management:</strong> Consistent oversight and accountability.</li>
+                <li><strong>Keeping Improvement:</strong> Continuous upgradation of technology and skills.</li>
+            </ul>
+        </div>
+
+        <div class="diagram-wrapper">
+            <div class="diagram-container">
+                <div class="center-circle">
+                    Quality<br>Policy
+                </div>
+
+                <div class="feathers-ring">
+                    <div class="feather top-left">
+                        <div class="feather-text">Customer<br>Satisfaction</div>
+                    </div>
+                    <div class="feather top-right">
+                        <div class="feather-text">Quality<br>First</div>
+                    </div>
+                    <div class="feather bottom-right">
+                        <div class="feather-text">Permanent<br>Management</div>
+                    </div>
+                    <div class="feather bottom-left">
+                        <div class="feather-text">Keeping<br>Improvement</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
 <footer class="site-footer">
     <div class="footer-container">
