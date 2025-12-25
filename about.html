@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Norden Technlab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- PAGE HEADER --- */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .page-header h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 2px; margin: 0; }
+
+        /* --- INTRO SECTION --- */
+        .story-section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        .story-text { flex: 1; }
+        .story-text h2 { color: #333; font-size: 2.2rem; margin-bottom: 10px; text-transform: uppercase; }
+        .tagline { color: var(--primary-color); font-weight: 700; font-size: 1.1rem; margin-bottom: 25px; display: block; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .story-text p { color: #555; margin-bottom: 20px; font-size: 1rem; line-height: 1.7; text-align: justify; }
+        
+        .story-img { flex: 1; }
+        .story-img img { width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        /* --- VISION & MISSION --- */
+        .vision-mission-section {
+            background-color: #f9f9f9;
+            padding: 80px 5%;
+        }
+        .vm-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        .vm-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 300px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary-color);
+            text-align: center;
+            transition: 0.3s;
+        }
+        .vm-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .vm-icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; }
+        .vm-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #222; text-transform: uppercase; }
+        .vm-card p { color: #666; line-height: 1.6; }
+
+        /* --- JOURNEY TIMELINE --- */
+        .timeline-section {
+            padding: 80px 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .section-heading {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+        
+        .timeline-item {
+            display: flex;
+            padding-bottom: 40px;
+            border-left: 3px solid #eee;
+            margin-left: 20px;
+            position: relative;
+        }
+        .timeline-item:last-child { border-left: none; padding-bottom: 0; }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 17px;
+            height: 17px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px var(--primary-color);
+        }
+
+        .timeline-year {
+            padding-left: 40px;
+            min-width: 150px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .timeline-content {
+            padding-left: 20px;
+        }
+        
+        .timeline-content p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.6;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 900px) {
+            .story-section { flex-direction: column; }
+            .story-img { width: 100%; }
+            .timeline-item { flex-direction: column; }
+            .timeline-year { margin-bottom: 10px; padding-left: 30px; font-size: 1.5rem; }
+            .timeline-content { padding-left: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-section">
+        <img src="assets/logo.png" 
+             alt="Norden Technologies Logo" class="main-logo">
+    </div>
+
+    <nav class="main-navbar">
+        <div class="mobile-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html" style="color:#ffcdd2;">ABOUT US</a></li>
+            
+            <li class="dropdown" onclick="toggleDropdown(this)">
+                <button class="dropbtn">TESTING SERVICES  <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="Testing-services/chemical-testing.html">CHEMICAL TESTING</a>
+                    <a href="Testing-services/mechanical-testing.html">MECHANICAL TESTING</a>
+                    <a href="Testing-services/mettallography-testing.html">METALLOGRAPHY TESTING</a>
+                    <a href="Testing-services/corrosion-testing.html">CORROSION TESTING</a>
+                </div>
+            </li>
+            
+            <li><a href="blog.html">BLOG</a></li>
+            
+            <li class="dropdown" onclick="toggleDropdown(this)">
+                <button class="dropbtn">ACCREDITATION  <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="assets/docs/NORDEN-BROUCHER.pdf" target="_blank">BROUCHER</a>
+                    <a href="assets/docs/NORDEN-CERTIFICATE.pdf" target="_blank">NABL CERTICATE</a>
+                    <a href="assets/docs/NORDEN-SCOPE.pdf" target="_blank">NABL SCOPE</a>
+                </div>
+            </li>
+            
+            <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>About Norden Techlab</h1>
+    </header>
+
+    <section class="story-section">
+        <div class="story-text">
+            <h2>About Us</h2>
+            <span class="tagline">House of Material Testing Laboratory — Precision, Performance, Perfection.</span>
+            
+            <p>
+                Founded in <strong>2019</strong>, <strong>Norden Techlab (OPC) Pvt. Ltd.</strong> has been operating successfully in the field of material testing. Initially launched as a proprietorship, the company continues to thrive under this structure by offering quality testing solutions to clients across multiple industries.
+            </p>
+            <p>
+                Our CEO oversees all operations of the testing laboratory, which functions as a core department of Norden Technologies. The lab is staffed with highly qualified engineers, technicians, and professionals dedicated to providing reliable and accurate testing reports.
+            </p>
+            <p>
+                We continuously strive to uphold the highest standards in testing and validation, supported by a dedicated marketing and operations team.
+            </p>
+        </div>
+        <div class="story-img">
+            <img src="assets/about.png" alt="Lab Team">
+        </div>
+    </section>
+
+    <section class="vision-mission-section">
+        <div class="vm-grid">
+            <div class="vm-card">
+                <div class="vm-icon"><i class="fas fa-bullseye"></i></div>
+                <h3>Our Mission</h3>
+                <p>Our mission is to ensure trust and reliability in every testing process, supporting industries with accurate and timely testing data that meet international standards.</p>
+            </div>
+            <div class="vm-card">
+                <div class="vm-icon"><i class="fas fa-eye"></i></div>
+                <h3>Our Vision</h3>
+                <p>Our vision is to become the preferred global partner in the field of testing and validation, supporting clients in delivering exceptional products, services, and solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline-section">
+        <h2 class="section-heading">Our Journey</h2>
+        
+        <div class="timeline-item">
+            <div class="timeline-year">2019</div>
+            <div class="timeline-content">
+                <p>Founded as <strong>Norden Technologies</strong>, beginning operations in material and metallurgical testing.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-year">2020</div>
+            <div class="timeline-content">
+                <p>Achieved <strong>NABL Accreditation</strong>, marking excellence in quality testing services.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-year">2023</div>
+            <div class="timeline-content">
+                <p>Expanded operations with advanced spectrometry and mechanical testing capabilities.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-content">
+                <p>Evolved as <strong>Norden Techlab</strong>, leading innovation in testing methodologies with cutting-edge equipment and automation.</p>
+            </div>
+        </div>
+
+    </section>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        
+        <div class="footer-col">
+            <a href="index.html" class="footer-logo">
+                <img src="assets/logo.png" alt="Company Logo" >
+            </a>
+            <p class="footer-desc">
+                Providing accurate material testing and quality assurance services. Trusted by industry leaders for precision and speed.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="index.html#hero">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="contact-info">
+                <li><i class="fas fa-map-marker-alt"></i>No.19, SF No: 476/4, Lakshmi Garden 3A,<br>
+                        Balaji Industrial Estate, Keeranatham,<br>
+                        Coimbatore – 641035</li>
+                <li><i class="fas fa-phone"></i> +91 87546 93384</li>
+                <li><i class="fas fa-envelope"></i> info@nordentechlab.com</li>
+            </ul>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Norden Techlab. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+
+<div class="quick-contact-wrapper" id="openContactBtn">
+    <div class="mail-icon">
+        <i class="fas fa-envelope"></i>
+    </div>
+
+</div>
+
+<div id="contactModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        
+        <h3 class="modal-title">Quick Message</h3>
+        <p class="modal-subtitle">We will get back to you shortly.</p>
+
+        <form id="quickMailForm">
+            <div class="form-group">
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="tel" placeholder="Phone Number" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="text" placeholder="Mission / Purpose" required>
+            </div>
+            
+            <div class="form-group">
+                <textarea placeholder="Your Message" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="send-btn">
+                Send Message <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
+<div id="scrollToTopBtn" class="scroll-top-btn">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+
+
+
+    <script>
+        function toggleMobileMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+        function toggleDropdown(el) {
+            if (window.innerWidth <= 992) { el.classList.toggle('active'); }
+        }
+    </script>
+
+
+<script>
+    // Get elements
+    const modal = document.getElementById("contactModal");
+    const btn = document.getElementById("openContactBtn");
+    const closeSpan = document.querySelector(".close-btn");
+    const form = document.getElementById("quickMailForm");
+
+    // Open Modal
+    btn.onclick = function() {
+        modal.style.display = "flex";
+    }
+
+    // Close Modal
+    closeSpan.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Close if clicked outside
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Form Submit Animation
+    form.onsubmit = function(e) {
+        e.preventDefault();
+        const submitBtn = document.querySelector('.send-btn');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+        
+        setTimeout(() => {
+            alert("Message Sent Successfully!");
+            modal.style.display = "none";
+            form.reset();
+            submitBtn.innerHTML = originalText;
+        }, 1500);
+    }
+</script>
+<script>
+    // --- Existing Modal Code Here ---
+
+    // --- NEW: Scroll To Top Logic ---
+    const scrollBtn = document.getElementById("scrollToTopBtn");
+
+    window.onscroll = function() {
+        toggleScrollButton();
+    };
+
+    function toggleScrollButton() {
+        // Show button if scrolled down more than 300px
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollBtn.classList.add("show");
+        } else {
+            scrollBtn.classList.remove("show");
+        }
+    }
+
+    // Smooth scroll to top when clicked
+    scrollBtn.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+</script>
+</body>
+</html>

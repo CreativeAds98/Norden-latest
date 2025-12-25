@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Testing - Norden Techlab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .hero-content h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
+        .hero-content p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; font-weight: 400; line-height: 1.6; }
+        
+        /* Chemical Content Section */
+        .chemical-content { padding: 80px 10%; max-width: 1300px; margin: 0 auto; }
+        
+        .chemical-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        
+        /* Reveal Animation Placeholder (Simple fade-in) */
+        .reveal-up { animation: fadeInUp 1s ease-out forwards; opacity: 0; transform: translateY(30px); }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        .chemical-text { flex: 1; min-width: 300px; }
+        .chemical-text h2 { color: #D32F2F; margin-bottom: 20px; font-size: 2.2rem; text-transform: uppercase; }
+        .chemical-text p { margin-bottom: 20px; color: #555; font-size: 1.1rem; }
+        
+        .chemical-text ul { list-style: none; margin-top: 20px; }
+        .chemical-text ul li {
+            background: #fff; 
+            padding: 12px 15px; 
+            border-left: 4px solid #D32F2F;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 8px; 
+            font-weight: 600; 
+            color: #333;
+            transition: 0.2s;
+        }
+        .chemical-text ul li:hover { padding-left: 20px; background: #f9f9f9; }
+
+        .chemical-image { flex: 1; min-width: 300px; }
+        .chemical-image img { 
+            width: 100%; 
+            border-radius: 10px; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .chemical-container { flex-direction: column-reverse; } 
+        }
+
+
+
+        /* =========================================
+   Sticky Brochure Button (Right Side)
+========================================= */
+.sticky-brochure-right {
+    position: fixed;
+    top: 50%; /* Center vertically */
+    right: 0; /* Stick to the RIGHT edge */
+    transform: translateY(-50%);
+    background-color: #333; /* Dark background */
+    color: white;
+    text-decoration: none;
+    padding: 15px 10px;
+    
+    /* Rounded corners on the LEFT side only */
+    border-radius: 8px 0 0 8px; 
+    
+    display: flex;
+    flex-direction: column; /* Stack icon and text */
+    align-items: center;
+    gap: 10px;
+    z-index: 998; /* Above content */
+    box-shadow: -2px 2px 10px rgba(0,0,0,0.2); /* Shadow on the left */
+    transition: all 0.3s ease;
+    width: 45px; /* Compact width */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.sticky-brochure-right i {
+    font-size: 24px;
+    color: #e63946; /* Red Icon */
+    transition: transform 0.3s;
+}
+
+.sticky-brochure-right span {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    writing-mode: vertical-rl; /* Vertical Text */
+    text-orientation: mixed;
+    letter-spacing: 1.5px;
+}
+
+/* Hover Effect */
+.sticky-brochure-right:hover {
+    background-color: #e63946; /* Red Background */
+    width: 55px; /* Expands slightly */
+    padding-right: 15px; /* Push text in slightly */
+}
+
+.sticky-brochure-right:hover i {
+    color: white;
+    transform: scale(1.1);
+}
+    </style>
+</head>
+<body>
+
+    <div class="logo-section">
+        <img src="../assets/logo.png" 
+             alt="Norden Technologies Logo" class="main-logo">
+    </div>
+
+    <nav class="main-navbar">
+        <div class="mobile-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">HOME</a></li>
+            <li><a href="../about.html">ABOUT US</a></li>
+            <li class="dropdown" onclick="toggleDropdown(this)">
+                <button class="dropbtn">TESTING SERVICES &nbsp;<i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="chemical-testing.html">CHEMICAL TESTING</a>
+                    <a href="mechanical-testing.html">MECHANICAL TESTING</a>
+                    <a href="mettallography-testing.html">METALLOGRAPHY TESTING</a>
+                    <a href="corrosion-testing.html">CORROSION TESTING</a>
+                </div>
+            </li>
+            <li><a href="../blog.html">BLOG</a></li>
+            <li class="dropdown" onclick="toggleDropdown(this)">
+                <button class="dropbtn">ACCREDITATION &nbsp;<i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="../assets/docs/NORDEN-BROUCHER.pdf" target="_blank">BROUCHER</a>
+                    <a href="../assets/docs/NORDEN-CERTIFICATE.pdf" target="_blank">NABL CERTICATE</a>
+                    <a href="../assets/docs/NORDEN-SCOPE.pdf" target="_blank">NABL SCOPE</a>
+                </div>
+            </li>
+            <li><a href="../contact.html">CONTACT US</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-header">
+        <div class="hero-content">
+            <h1>Chemical Testing</h1>
+            <p>Accurate analysis of metals and alloys for quality and composition verification.</p>
+        </div>
+    </section>
+
+    <section class="chemical-content">
+        <div class="chemical-container reveal-up">
+            <div class="chemical-text">
+                <h2>Chemical Testing</h2>
+                <p>Materials tested include:</p>
+                <ul>
+                    <li>Plain carbon and low-alloy steels</li>
+                    <li>Stainless steels and high chromium/nickel steels</li>
+                    <li>Tool steels</li>
+                    <li>Maraging steels</li>
+                    <li>Cast irons and SG iron</li>
+                    <li>Ni-Hard and Ni-Resist alloys</li>
+                    <li>Nickel-based alloys such as Monel, Inconel, and Hastelloy</li>
+                </ul>
+            </div>
+
+            <div class="chemical-image">
+                <img src="../assets/testing-service/chemical.png" 
+                     onerror="this.src='https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=800'" 
+                     alt="Chemical Equipment">
+            </div>
+        </div>
+    </section>
+
+
+        <a href="path-to-your-brochure.pdf" class="sticky-brochure-right" download>
+            <i class="fas fa-file-pdf"></i>
+            <span>Download Brochure</span>
+        </a>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        
+        <div class="footer-col">
+            <a href="../index.html" class="footer-logo">
+                <img src="../assets/logo.png" alt="Company Logo" >
+            </a>
+            <p class="footer-desc">
+                Providing accurate material testing and quality assurance services. Trusted by industry leaders for precision and speed.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="../index.html#hero">Home</a></li>
+                <li><a href="../about.html">About Us</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="contact-info">
+                <li><i class="fas fa-map-marker-alt"></i>No.19, SF No: 476/4, Lakshmi Garden 3A,<br>
+                        Balaji Industrial Estate, Keeranatham,<br>
+                        Coimbatore – 641035</li>
+                <li><i class="fas fa-phone"></i> +91 87546 93384</li>
+                <li><i class="fas fa-envelope"></i> info@nordentechlab.com</li>
+            </ul>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Norden Techlab. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+<div class="quick-contact-wrapper" id="openContactBtn">
+    <div class="mail-icon">
+        <i class="fas fa-envelope"></i>
+    </div>
+
+</div>
+
+<div id="contactModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        
+        <h3 class="modal-title">Quick Message</h3>
+        <p class="modal-subtitle">We will get back to you shortly.</p>
+
+        <form id="quickMailForm">
+            <div class="form-group">
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="tel" placeholder="Phone Number" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="text" placeholder="Mission / Purpose" required>
+            </div>
+            
+            <div class="form-group">
+                <textarea placeholder="Your Message" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="send-btn">
+                Send Message <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
+<div id="scrollToTopBtn" class="scroll-top-btn">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+
+
+    <script>
+        function toggleMobileMenu() { document.querySelector('.nav-links').classList.toggle('active'); }
+        function toggleDropdown(el) { if(window.innerWidth<=992) el.classList.toggle('active'); }
+    </script>
+
+    <script>
+    // Get elements
+    const modal = document.getElementById("contactModal");
+    const btn = document.getElementById("openContactBtn");
+    const closeSpan = document.querySelector(".close-btn");
+    const form = document.getElementById("quickMailForm");
+
+    // Open Modal
+    btn.onclick = function() {
+        modal.style.display = "flex";
+    }
+
+    // Close Modal
+    closeSpan.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Close if clicked outside
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Form Submit Animation
+    form.onsubmit = function(e) {
+        e.preventDefault();
+        const submitBtn = document.querySelector('.send-btn');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+        
+        setTimeout(() => {
+            alert("Message Sent Successfully!");
+            modal.style.display = "none";
+            form.reset();
+            submitBtn.innerHTML = originalText;
+        }, 1500);
+    }
+</script>
+<script>
+    // --- Existing Modal Code Here ---
+
+    // --- NEW: Scroll To Top Logic ---
+    const scrollBtn = document.getElementById("scrollToTopBtn");
+
+    window.onscroll = function() {
+        toggleScrollButton();
+    };
+
+    function toggleScrollButton() {
+        // Show button if scrolled down more than 300px
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollBtn.classList.add("show");
+        } else {
+            scrollBtn.classList.remove("show");
+        }
+    }
+
+    // Smooth scroll to top when clicked
+    scrollBtn.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+</script>
+</body>
+</html>

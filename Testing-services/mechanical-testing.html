@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanical Testing - Norden Techlab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .page-header h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Service Layout */
+        .service-details { padding: 80px 10%; max-width: 1300px; margin: 0 auto; }
+        
+        .mech-content {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .mech-item {
+            display: flex;
+            align-items: center; /* Vertically center image and text */
+            gap: 50px;
+            flex-wrap: wrap;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #eee;
+        }
+        .mech-item:last-child { border-bottom: none; }
+
+        /* General styles for left/right columns */
+        .mech-left, .mech-right, .mech-middle { flex: 1; min-width: 300px; }
+
+        /* Specific modifications for "Image First" request */
+        /* We use order property to ensure image appears first visually if needed, 
+           or rely on HTML source order if we change the structure directly. 
+           Since you asked to put image first in HTML, we will do that. */
+        
+        .mech-right img { 
+            width: 100%; 
+            border-radius: 10px; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
+            display: block;
+        }
+
+        .mech-left h2, .mech-middle h2 { color: #D32F2F; margin-bottom: 15px; font-size: 1.8rem; }
+        .mech-left p, .mech-middle p { margin-bottom: 20px; color: #555; font-size: 1rem; line-height: 1.6; }
+
+        /* Table Styling */
+        .mech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            font-size: 0.9rem;
+        }
+        .mech-table th, .mech-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .mech-table th {
+            background-color: #D32F2F;
+            color: white;
+        }
+        .mech-table tr:nth-child(even) { background-color: #f9f9f9; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .mech-item { flex-direction: column; } /* Stack vertically on mobile */
+            .mech-right { width: 100%; order: -1; } /* Ensure image is top on mobile if using flex order, though HTML order handles it too */
+        }
+
+
+        
+
+
+        /* =========================================
+   Sticky Brochure Button (Right Side)
+========================================= */
+.sticky-brochure-right {
+    position: fixed;
+    top: 50%; /* Center vertically */
+    right: 0; /* Stick to the RIGHT edge */
+    transform: translateY(-50%);
+    background-color: #333; /* Dark background */
+    color: white;
+    text-decoration: none;
+    padding: 15px 10px;
+    
+    /* Rounded corners on the LEFT side only */
+    border-radius: 8px 0 0 8px; 
+    
+    display: flex;
+    flex-direction: column; /* Stack icon and text */
+    align-items: center;
+    gap: 10px;
+    z-index: 998; /* Above content */
+    box-shadow: -2px 2px 10px rgba(0,0,0,0.2); /* Shadow on the left */
+    transition: all 0.3s ease;
+    width: 45px; /* Compact width */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.sticky-brochure-right i {
+    font-size: 24px;
+    color: #e63946; /* Red Icon */
+    transition: transform 0.3s;
+}
+
+.sticky-brochure-right span {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    writing-mode: vertical-rl; /* Vertical Text */
+    text-orientation: mixed;
+    letter-spacing: 1.5px;
+}
+
+/* Hover Effect */
+.sticky-brochure-right:hover {
+    background-color: #e63946; /* Red Background */
+    width: 55px; /* Expands slightly */
+    padding-right: 15px; /* Push text in slightly */
+}
+
+.sticky-brochure-right:hover i {
+    color: white;
+    transform: scale(1.1);
+}
+    
+    </style>
+</head>
+<body>
+
+    <div class="logo-section">
+        <img src="../assets/logo.png" 
+             alt="Norden Technologies Logo" class="main-logo">
+    </div>
+
+    <nav class="main-navbar">
+        <div class="mobile-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">HOME</a></li>
+            <li><a href="../about.html">ABOUT US</a></li>
+            <li class="dropdown" onclick="toggleDropdown(this)">
+                <button class="dropbtn">TESTING SERVICES &nbsp;<i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="chemical-testing.html">CHEMICAL TESTING</a>
+                    <a href="mechanical-testing.html">MECHANICAL TESTING</a>
+                    <a href="mettallography-testing.html">METALLOGRAPHY TESTING</a>
+                    <a href="corrosion-testing.html">CORROSION TESTING</a>
+                </div>
+            </li>
+            <li><a href="../blog.html">BLOG</a></li>
+            <li class="dropdown" onclick="toggleDropdown(this)">
+                <button class="dropbtn">ACCREDITATION &nbsp;<i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="../assets/docs/NORDEN-BROUCHER.pdf" target="_blank">BROUCHER</a>
+                    <a href="../assets/docs/NORDEN-CERTIFICATE.pdf" target="_blank">NABL CERTICATE</a>
+                    <a href="../assets/docs/NORDEN-SCOPE.pdf" target="_blank">NABL SCOPE</a>
+                </div>
+            </li>
+            <li><a href="../contact.html">CONTACT US</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>Mechanical Testing</h1>
+    </header>
+
+    <section class="service-details">
+        
+        <section class="mech-content">
+
+          <article class="mech-item">
+            <div class="mech-right">
+              <img src="../assets/testing-service/tensile-testile.png" alt="Universal Tensile Testing Machine">
+            </div>
+            <div class="mech-left">
+              <h2>Tensile Testing</h2>
+              <p>
+                Tensile testing determines material strength and ductility by applying axial force until fracture.
+                Commonly used to determine tensile strength, yield strength, elongation and reduction of area.
+              </p>
+
+              <table class="mech-table">
+                <thead>
+                  <tr><th>Specific Test Performed</th><th>Test Method</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Tensile Strength / Yield Strength / Proof Strength (0.2% &amp; 1%) / % Elongation / % Reduction of Area</td>
+                    <td>
+                      IS 1608 – Part 1<br>
+                      ISO 6892-1<br>
+                      ISO 4136<br>
+                      ASTM A370<br>
+                      ASTM E8 / E8M<br>
+                      ASTM B557M / ASTM B557<br>
+                      AWS B 4.0<br>
+                      ASME Sec IX<br>
+                      AWS D1.1 / D1.1M
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="mech-item alt">
+            <div class="mech-right">
+              <img src="../assets/testing-service/blend-test.png" alt="Bend Test Machine">
+            </div>
+            <div class="mech-left darkbox">
+              <h2>Bend Test</h2>
+              <p>The bend (flexural) test evaluates ductility and resistance to fracture under bending stress.</p>
+              <table class="mech-table">
+                <thead>
+                  <tr><th>Specific Test Performed</th><th>Test Method</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Bend Test</td>
+                    <td>
+                      IS 1599<br>
+                      ISO 7438<br>
+                      ISO 5173<br>
+                      ASTM E290<br>
+                      ASTM A370<br>
+                      ASTM E190<br>
+                      ASME Sec IX<br>
+                      AWS D1.1 / D1.1M
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="mech-item">
+            <div class="mech-right">
+              <img src="../assets/testing-service/hot-tensile.png" alt="High Temperature Tensile Test">
+            </div>
+            <div class="mech-left">
+              <h2>Hot Tensile — Elevated Temperature Testing</h2>
+              <p>Temperature range typically from 50°C to 900°C. Used to examine strength and ductility at elevated temperatures.</p>
+
+              <table class="mech-table">
+                <thead>
+                  <tr><th>Specific Test Performed</th><th>Test Method</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Tensile Strength / Yield Strength / Proof Strength (0.2% &amp; 1%) / % Elongation / % Reduction of Area</td>
+                    <td>
+                      IS 1608 – Part 2<br>
+                      ISO 6892-2<br>
+                      ASTM E21
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="mech-item alt">
+            <div class="mech-right">
+              <img src="../assets/testing-service/rock-1.png" alt="Charpy Impact Testing Machine">
+            </div>
+            <div class="mech-left darkbox">
+              <h2>Charpy Impact Testing</h2>
+              <p>Standardized method to determine energy absorbed by a specimen during fracture (toughness).</p>
+              <table class="mech-table">
+                <thead><tr><th>Specific Test Performed</th><th>Test Method</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td>Charpy Impact Test (room / sub-zero)</td>
+                    <td>
+                      IS 1757 (Pt-1)<br>
+                      ISO 148-1<br>
+                      ASTM A370<br>
+                      ASTM E23<br>
+                      ASTM A923 – Method B
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="mech-item">
+            <div class="mech-right">
+              <img src="../assets/testing-service/rock-2.png" alt="Rockwell / Hardness Machines">
+            </div>
+            <div class="mech-left">
+              <h2>Hardness Testing</h2>
+              <p>Evaluates resistance to indentation with multiple scales (Rockwell, Brinell, Vickers) and portable testers.</p>
+
+              <table class="mech-table">
+                <thead><tr><th>Specific Test Performed</th><th>Test Method</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td>Rockwell Hardness</td>
+                    <td>IS 1586 (Pt-1) / ISO 6508-1 / ASTM E18 / ASTM A370</td>
+                  </tr>
+                  <tr>
+                    <td>Vickers Hardness</td>
+                    <td>IS 1501 (Pt-1) / ISO 6507-1 / ASTM E92</td>
+                  </tr>
+                  <tr>
+                    <td>Brinell Hardness</td>
+                    <td>IS 1500 (Pt-1) / ISO 6506-1 / ASTM E10</td>
+                  </tr>
+                  <tr>
+                    <td>Portable Hardness</td>
+                    <td>ASTM E110</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="mech-item alt">
+            <div class="mech-right">
+              <img src="../assets/testing-service/welding.png" alt="Weld Qualification">
+            </div>
+            <div class="mech-left darkbox">
+              <h2>Welding Qualification</h2>
+              <p>Weld procedure &amp; welder qualification testing as per ASME, AWS and ISO standards.</p>
+              <table class="mech-table">
+                <thead><tr><th>Specific Test Performed</th><th>Test Method</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td>Weld procedure qualification / Welder performance tests</td>
+                    <td>
+                      ASME Sec IX<br>
+                      AWS D1.1 / D1.1M<br>
+                      AWS D1.6 / D1.6M<br>
+                      Relevant ISO welding standards
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="mech-item">
+            <div class="mech-right">
+              <img src="../assets/testing-service/flaring-test.png" alt="Flaring Test">
+            </div>
+            <div class="mech-left">
+              <h2>Flaring Test</h2>
+              <p>Used to assess a tube’s ability to expand without cracking during flaring operations.</p>
+
+              <table class="mech-table">
+                <thead><tr><th>Specific Test Performed</th><th>Test Method</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td>Flaring / Expansion Test</td>
+                    <td>
+                      Applicable ISO / ASTM procedures as per material and spec
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="mech-item alt">
+            <div class="mech-right">
+              <img src="../assets/testing-service/flattening-test.png" alt="Flattening Test">
+            </div>
+            <div class="mech-left darkbox">
+              <h2>Flattening Test</h2>
+              <p>Checks ductility and strength of pipes / tubes by compressing between plates.</p>
+              <table class="mech-table">
+                <thead><tr><th>Specific Test Performed</th><th>Test Method</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td>Flattening / Ductility check</td>
+                    <td>
+                      Relevant ASTM / ISO methods depending on tube material and spec
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="mech-item">
+            <div class="mech-right">
+              <img src="../assets/testing-service/fracture-test.png" alt="Fracture Test">
+            </div>
+            <div class="mech-left">
+              <h2>Fracture Test</h2>
+              <p>Determines material behaviour and resistance when subjected to breaking forces.</p>
+
+              <table class="mech-table">
+                <thead><tr><th>Specific Test Performed</th><th>Test Method</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td>Fracture Mechanics / Failure Analysis</td>
+                    <td>
+                      ASTM standard fracture test methods and relevant ISO procedures
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+        </section>
+
+    </section>
+
+
+
+
+    <a href="path-to-your-brochure.pdf" class="sticky-brochure-right" download>
+    <i class="fas fa-file-pdf"></i>
+    <span>Download Brochure</span>
+    </a>
+
+
+<footer class="site-footer">
+    <div class="footer-container">
+        
+        <div class="footer-col">
+            <a href="#" class="footer-logo">
+                <img src="../assets/logo.png" alt="Company Logo" >
+            </a>
+            <p class="footer-desc">
+                Providing accurate material testing and quality assurance services. Trusted by industry leaders for precision and speed.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="../index.html#hero">Home</a></li>
+                <li><a href="../about.html">About Us</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="contact-info">
+                <li><i class="fas fa-map-marker-alt"></i>No.19, SF No: 476/4, Lakshmi Garden 3A,<br>
+                        Balaji Industrial Estate, Keeranatham,<br>
+                        Coimbatore – 641035</li>
+                <li><i class="fas fa-phone"></i> +91 87546 93384</li>
+                <li><i class="fas fa-envelope"></i> info@nordentechlab.com</li>
+            </ul>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Norden Techlab. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<div class="quick-contact-wrapper" id="openContactBtn">
+    <div class="mail-icon">
+        <i class="fas fa-envelope"></i>
+    </div>
+
+</div>
+
+<div id="contactModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        
+        <h3 class="modal-title">Quick Message</h3>
+        <p class="modal-subtitle">We will get back to you shortly.</p>
+
+        <form id="quickMailForm">
+            <div class="form-group">
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="tel" placeholder="Phone Number" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="text" placeholder="Mission / Purpose" required>
+            </div>
+            
+            <div class="form-group">
+                <textarea placeholder="Your Message" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="send-btn">
+                Send Message <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
+<div id="scrollToTopBtn" class="scroll-top-btn">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+    <script>
+        function toggleMobileMenu() { document.querySelector('.nav-links').classList.toggle('active'); }
+        function toggleDropdown(el) { if(window.innerWidth<=992) el.classList.toggle('active'); }
+    </script>
+
+    <script>
+    // Get elements
+    const modal = document.getElementById("contactModal");
+    const btn = document.getElementById("openContactBtn");
+    const closeSpan = document.querySelector(".close-btn");
+    const form = document.getElementById("quickMailForm");
+
+    // Open Modal
+    btn.onclick = function() {
+        modal.style.display = "flex";
+    }
+
+    // Close Modal
+    closeSpan.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Close if clicked outside
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Form Submit Animation
+    form.onsubmit = function(e) {
+        e.preventDefault();
+        const submitBtn = document.querySelector('.send-btn');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+        
+        setTimeout(() => {
+            alert("Message Sent Successfully!");
+            modal.style.display = "none";
+            form.reset();
+            submitBtn.innerHTML = originalText;
+        }, 1500);
+    }
+</script>
+<script>
+    // --- Existing Modal Code Here ---
+
+    // --- NEW: Scroll To Top Logic ---
+    const scrollBtn = document.getElementById("scrollToTopBtn");
+
+    window.onscroll = function() {
+        toggleScrollButton();
+    };
+
+    function toggleScrollButton() {
+        // Show button if scrolled down more than 300px
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollBtn.classList.add("show");
+        } else {
+            scrollBtn.classList.remove("show");
+        }
+    }
+
+    // Smooth scroll to top when clicked
+    scrollBtn.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+</script>
+</body>
+</html>

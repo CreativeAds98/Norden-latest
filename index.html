@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norden Techlab Pvt Ltd</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <div class="logo-section">
+        <img src="assets/logo.png" 
+             alt="Norden Technologies Logo" class="main-logo">
+    </div>
+
+    <nav class="main-navbar">
+        <div class="mobile-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li class="dropdown" onclick="toggleDropdown(this)">
+                <button class="dropbtn">TESTING SERVICES &nbsp;<i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="Testing-services/chemical-testing.html">CHEMICAL TESTING</a>
+                    <a href="Testing-services/mechanical-testing.html">MECHANICAL TESTING</a>
+                    <a href="Testing-services/mettallography-testing.html">METALLOGRAPHY TESTING</a>
+                    <a href="Testing-services/corrosion-testing.html">CORROSION TESTING</a>
+                </div>
+            </li>
+            <li><a href="blog.html">BLOG</a></li>
+            <li class="dropdown" onclick="toggleDropdown(this)">
+                <button class="dropbtn">ACCREDITATION &nbsp;<i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="assets/docs/NORDEN-BROUCHER.pdf" target="_blank">BROUCHER</a>
+                    <a href="assets/docs/NORDEN-CERTIFICATE.pdf" target="_blank">NABL CERTICATE</a>
+                    <a href="assets/docs/NORDEN-SCOPE.pdf" target="_blank">NABL SCOPE</a>
+                </div>
+            </li>
+            <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+    </nav>
+
+    <div class="slider-container">
+        <div class="slide active" style="background-image: url('assets/hero-sliders/norden-hero-1.jpg');">
+            <div class="slide-content">
+                <h2>Precision Engineering</h2>
+                <p>Delivering high-performance mechanical solutions and NABL accredited testing.</p>
+                
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('assets/hero-sliders/norden-hero-2.png');">
+            <div class="slide-content">
+                <h2>Advanced Laboratory</h2>
+                <p>Equipped with state-of-the-art technology ensuring highest global standards.</p>
+    
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('assets/hero-sliders/norden-hero-5.png');">
+            <div class="slide-content">
+                <h2>Expert Consultation</h2>
+                <p>Dedicated team of engineers providing 24/7 technical guidance.</p>
+
+            </div>
+        </div>
+        <button class="slider-btn prev" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-btn next" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <section class="about-section">
+        <div class="about-image-col">
+            <div class="about-blob"></div>
+            <div class="about-image-wrapper">
+                <img src="assets/about.png" alt="Lab Testing">
+            </div>
+        </div>
+        <div class="about-text-col">
+            <span class="sub-heading">WELCOME TO</span>
+            <h2 class="main-heading">NORDEN TECHLAB (OPC) PRIVATE LIMITED</h2>
+            <p>Founded in 2019 as Norden Technologies, the organization began its journey in the field of material testing as a proprietorship concern. In 2025, it evolved into Norden Techlab, continuing to operate successfully while expanding its capabilities.</p>
+            <p>The CEO oversees all operations of the testing laboratory, which functions as a core department of NT. Our lab is staffed with experienced and qualified engineers.</p>
+            <a href="about.html" class="btn-red">READ MORE &rightarrow;</a>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <h2 class="section-title">OUR CORE TESTING SERVICES</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-flask"></i></div>
+                <h3>Chemical Testing</h3>
+                <p>Accurate chemical composition analysis of ferrous and non-ferrous metals using advanced spectrometry.</p>
+                <a href="#" class="btn-red">EXPLORE &rightarrow;</a>
+            </div>
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-cogs"></i></div>
+                <h3>Mechanical Testing</h3>
+                <p>Tensile, impact, hardness, bend tests and welding qualification to ensure material strength and reliability.</p>
+                <a href="#" class="btn-red">EXPLORE &rightarrow;</a>
+            </div>
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-microscope"></i></div>
+                <h3>Metallography Testing</h3>
+                <p>Microstructural evaluation through microscopic examination for grain flow, phase distribution and defects.</p>
+                <a href="#" class="btn-red">EXPLORE &rightarrow;</a>
+            </div>
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-vial"></i></div>
+                <h3>Corrosion Testing</h3>
+                <p>Pitting, intergranular, and chemical corrosion studies to evaluate the durability and resistance of materials.</p>
+                <a href="#" class="btn-red">EXPLORE &rightarrow;</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="track-record">
+        <div class="track-grid">
+            <div class="track-item">
+                <i class="fas fa-calendar-check"></i>
+                <span class="track-number">5+</span>
+                <span class="track-label">Years Experience</span>
+            </div>
+            <div class="track-item">
+                <i class="fas fa-smile"></i>
+                <span class="track-number">200+</span>
+                <span class="track-label">Happy Clients</span>
+            </div>
+            <div class="track-item">
+                <i class="fas fa-project-diagram"></i>
+                <span class="track-number">500+</span>
+                <span class="track-label">Projects Completed</span>
+            </div>
+            <div class="track-item">
+                <i class="fas fa-award"></i>
+                <span class="track-number">100%</span>
+                <span class="track-label">NABL Accredited</span>
+            </div>
+        </div>
+    </section>
+
+            <section class="reviews-section">
+            <h2 class="section-title">WHAT OUR CLIENTS SAY</h2>
+            
+            <div class="reviews-container">
+                <div class="reviews-track">
+                    
+                    <div class="review-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"I am satisfied with the accuracy of the results and the timely support provided regarding the material testing service."</p>
+                        <div class="client-info">
+                            <div class="client-details">
+                                <h5>Sri Ranganathar Valves Pvt Ltd</h5>
+                                <span>Coimbatore</span>
+                            </div>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"We continue to do tests only in this lab. They finish the test within the specified time, and give the report with accurate results. The report includes all the details we need. We are fully satisfied."</p>
+                        <div class="client-info">
+                            <div class="client-details">
+                                <h5>Santhi Casting Works</h5>
+                                <span>Coimbatore</span>
+                            </div>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Good response from the company and good quality-wise. Great to be part of your company."</p>
+                        <div class="client-info">
+                            <div class="client-details">
+                                <h5>AK Jain Forgings LLP</h5>
+                            </div>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Norden Tech Lab has a strong sense of customer satisfaction. Their testing procedures are good, and they provide results on the exact date and time requested. The lab infrastructure is excellent."</p>
+                        <div class="client-info">
+                            <div class="client-details">
+                                <h5>Karthikeya Industries</h5>
+                                <span>Sengalipalayam</span>
+                            </div>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"Good customer support and on-time delivery. The lab is very neat and clean. Excellent support provided to the customer."</p>
+                        <div class="client-info">
+                            <div class="client-details">
+                                <h5>SSA Castings</h5>
+                            </div>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"I found a very customer-friendly service. A very good team with the knowledge of standards was observed."</p>
+                        <div class="client-info">
+                            <div class="client-details">
+                                <h5>Craftsman</h5>
+                            </div>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="review-text">"I’ve had a great experience working with your team — very professional, supportive, and committed to quality. Looking forward to more collaborations!"</p>
+                        <div class="client-info">
+                            <div class="client-details">
+                                <h5>Amma Alloys India Pvt Ltd</h5>
+                            </div>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        
+        <div class="footer-col">
+            <a href="index.html" class="footer-logo">
+                <img src="assets/logo.png" alt="Company Logo" >
+            </a>
+            <p class="footer-desc">
+                Providing accurate material testing and quality assurance services. Trusted by industry leaders for precision and speed.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="index.html#hero">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="contact-info">
+                <li><i class="fas fa-map-marker-alt"></i>No.19, SF No: 476/4, Lakshmi Garden 3A,<br>
+                        Balaji Industrial Estate, Keeranatham,<br>
+                        Coimbatore – 641035</li>
+                <li><i class="fas fa-phone"></i> +91 87546 93384</li>
+                <li><i class="fas fa-envelope"></i> info@nordentechlab.com</li>
+            </ul>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Norden Techlab. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    
+
+<div class="quick-contact-wrapper" id="openContactBtn">
+    <div class="mail-icon">
+        <i class="fas fa-envelope"></i>
+    </div>
+
+</div>
+
+<div id="contactModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        
+        <h3 class="modal-title">Quick Message</h3>
+        <p class="modal-subtitle">We will get back to you shortly.</p>
+
+        <form id="quickMailForm">
+            <div class="form-group">
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="tel" placeholder="Phone Number" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="text" placeholder="Mission / Purpose" required>
+            </div>
+            
+            <div class="form-group">
+                <textarea placeholder="Your Message" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="send-btn">
+                Send Message <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
+<div id="scrollToTopBtn" class="scroll-top-btn">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+    <script>
+        // --- MOBILE MENU ---
+        function toggleMobileMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+        function toggleDropdown(el) {
+            if (window.innerWidth <= 992) { el.classList.toggle('active'); }
+        }
+
+        // --- HERO SLIDER ---
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let slideInterval;
+        function showSlide(index) {
+            if (index >= totalSlides) currentSlide = 0;
+            else if (index < 0) currentSlide = totalSlides - 1;
+            else currentSlide = index;
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+                const content = slide.querySelector('.slide-content');
+                void content.offsetWidth; 
+            });
+            slides[currentSlide].classList.add('active');
+        }
+        function moveSlide(direction) { showSlide(currentSlide + direction); resetTimer(); }
+        function startTimer() { slideInterval = setInterval(() => { moveSlide(1); }, 6000); }
+        function resetTimer() { clearInterval(slideInterval); startTimer(); }
+        startTimer();
+
+        // --- SCROLL ANIMATION ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.service-card').forEach(c => c.classList.add('visible'));
+                }
+            });
+        }, { threshold: 0.1 });
+        observer.observe(document.querySelector('#services'));
+
+        // --- REVIEW SLIDER LOGIC ---
+        const track = document.querySelector('.reviews-track');
+        let reviewCards = document.querySelectorAll('.review-card');
+        const originalCount = reviewCards.length;
+        let reviewIndex = 0;
+
+        // Clone cards to creating infinite loop
+        for(let i=0; i<3; i++) {
+            track.appendChild(reviewCards[i].cloneNode(true));
+        }
+
+        function slideReviews() {
+            reviewIndex++;
+            const gap = 30;
+            // Get current width of the first card
+            const cardWidth = document.querySelector('.review-card').offsetWidth + gap; 
+            
+            track.style.transition = 'transform 0.8s ease-in-out';
+            track.style.transform = `translateX(-${reviewIndex * cardWidth}px)`;
+
+            // Reset loop instantly when reaching the end
+            if (reviewIndex === originalCount) {
+                setTimeout(() => {
+                    track.style.transition = 'none';
+                    reviewIndex = 0;
+                    track.style.transform = `translateX(0)`;
+                }, 800); // Match transition duration
+            }
+        }
+        
+        // Slide every 3 seconds
+        setInterval(slideReviews, 3000);
+
+    </script>
+<script>
+    // Get elements
+    const modal = document.getElementById("contactModal");
+    const btn = document.getElementById("openContactBtn");
+    const closeSpan = document.querySelector(".close-btn");
+    const form = document.getElementById("quickMailForm");
+
+    // Open Modal
+    btn.onclick = function() {
+        modal.style.display = "flex";
+    }
+
+    // Close Modal
+    closeSpan.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Close if clicked outside
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Form Submit Animation
+    form.onsubmit = function(e) {
+        e.preventDefault();
+        const submitBtn = document.querySelector('.send-btn');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+        
+        setTimeout(() => {
+            alert("Message Sent Successfully!");
+            modal.style.display = "none";
+            form.reset();
+            submitBtn.innerHTML = originalText;
+        }, 1500);
+    }
+</script>
+<script>
+    // --- Existing Modal Code Here ---
+
+    // --- NEW: Scroll To Top Logic ---
+    const scrollBtn = document.getElementById("scrollToTopBtn");
+
+    window.onscroll = function() {
+        toggleScrollButton();
+    };
+
+    function toggleScrollButton() {
+        // Show button if scrolled down more than 300px
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollBtn.classList.add("show");
+        } else {
+            scrollBtn.classList.remove("show");
+        }
+    }
+
+    // Smooth scroll to top when clicked
+    scrollBtn.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+</script>
+</body>
+</html>

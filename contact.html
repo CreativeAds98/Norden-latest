@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Norden Techlab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- PAGE HEADER --- */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .page-header h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 2px; margin: 0; }
+
+        /* --- CONTACT SECTION LAYOUT --- */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 5%;
+            gap: 50px;
+        }
+
+        /* Left Column: Info & Map */
+        .contact-info-col {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .info-box {
+            margin-bottom: 40px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .info-icon {
+            background-color: var(--primary-color);
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .info-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #333;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .info-content p {
+            color: #555;
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .info-content strong {
+            color: #222;
+            font-weight: 700;
+        }
+
+        /* Map Style */
+        .map-wrapper {
+            width: 100%;
+            height: 350px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+        }
+
+        /* Right Column: Form */
+        .contact-form-col {
+            flex: 1.2;
+            min-width: 300px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .contact-form-col h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Open Sans', sans-serif;
+            transition: 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 5px rgba(211, 47, 47, 0.2);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            height: 150px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .contact-container { flex-direction: column; gap: 30px; }
+            .contact-form-col { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-section">
+        <img src="assets/logo.png" 
+             alt="Norden Technologies Logo" class="main-logo">
+    </div>
+
+    <nav class="main-navbar">
+        <div class="mobile-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="#">ABOUT US</a></li>
+            
+            <li class="dropdown" onclick="toggleDropdown(this)">
+                <button class="dropbtn">TESTING SERVICES &nbsp;<i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="Testing-services/chemical-testing.html">CHEMICAL TESTING</a>
+                    <a href="Testing-services/mechanical-testing.html">MECHANICAL TESTING</a>
+                    <a href="Testing-services/mettallography-testing.html">METALLOGRAPHY TESTING</a>
+                    <a href="Testing-services/corrosion-testing.html">CORROSION TESTING</a>
+                </div>
+            </li>
+            
+            <li><a href="blog.html">BLOG</a></li>
+            
+            <li class="dropdown" onclick="toggleDropdown(this)">
+                <button class="dropbtn">ACCREDITATION &nbsp;<i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="assets/docs/NORDEN-BROUCHER.pdf" target="_blank">BROUCHER</a>
+                    <a href="assets/docs/NORDEN-CERTIFICATE.pdf" target="_blank">NABL CERTICATE</a>
+                    <a href="assets/docs/NORDEN-SCOPE.pdf" target="_blank">NABL SCOPE</a>
+                </div>
+            </li>
+            
+            <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>Contact Us</h1>
+    </header>
+
+    <div class="contact-container">
+        
+        <div class="contact-info-col">
+            
+            <div class="info-box">
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="info-content">
+                        <h3>Our Address</h3>
+                        <p>No.19, SF No: 476/4, Lakshmi Garden 3A,<br>
+                        Balaji Industrial Estate, Keeranatham,<br>
+                        Coimbatore – 641035</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="info-content">
+                        <h3>Phone Numbers</h3>
+                        <p><strong>Enquiries / Accounts:</strong> +91 87546 93384</p>
+                        <p><strong>Testing / Technical:</strong> +91 96980 82344</p>
+                        <p><strong>Admin / WhatsApp:</strong> +91 88700 11631</p>
+                        <p><strong>CEO:</strong> +91 93448 3128</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="info-content">
+                        <h3>Email Address</h3>
+                        <p>info@nordentechlab.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-wrapper">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    src="https://maps.google.com/maps?q=No.19,+SF+No:+476/4,+Lakshmi+Garden+3A,+Balaji+Industrial+Estate,+Keeranatham,+Coimbatore&t=&z=14&ie=UTF8&iwloc=&output=embed">
+                </iframe>
+            </div>
+
+        </div>
+
+        <div class="contact-form-col">
+            <h2>Send Us a Message</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" class="form-control" placeholder="Inquiry about...">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" class="form-control" placeholder="How can we help you?"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane" style="margin-left:8px;"></i></button>
+            </form>
+        </div>
+
+    </div>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        
+        <div class="footer-col">
+            <a href="index.html" class="footer-logo">
+                <img src="assets/logo.png" alt="Company Logo" >
+            </a>
+            <p class="footer-desc">
+                Providing accurate material testing and quality assurance services. Trusted by industry leaders for precision and speed.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="index.html#hero">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="contact-info">
+                <li><i class="fas fa-map-marker-alt"></i>No.19, SF No: 476/4, Lakshmi Garden 3A,<br>
+                        Balaji Industrial Estate, Keeranatham,<br>
+                        Coimbatore – 641035</li>
+                <li><i class="fas fa-phone"></i> +91 87546 93384</li>
+                <li><i class="fas fa-envelope"></i> info@nordentechlab.com</li>
+            </ul>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Norden Techlab. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+        function toggleDropdown(el) {
+            if (window.innerWidth <= 992) { el.classList.toggle('active'); }
+        }
+    </script>
+</body>
+</html>
