@@ -149,6 +149,67 @@ nav.main-navbar {
 }
 .btn-red:hover { background-color: #D32F2F; }
 
+/* =========================================
+   RESPONSIVE ABOUT SECTION 
+   (Add this inside your existing @media block or at the end of CSS)
+========================================= */
+@media screen and (max-width: 992px) {
+    
+    /* 1. Stack Image and Text Vertically */
+    .about-section {
+        flex-direction: column; /* Stacks items */
+        padding: 60px 20px; /* Reduce padding */
+        gap: 40px; /* Reduce gap between image and text */
+        text-align: center; /* Center align content */
+    }
+
+    /* 2. Make Columns Full Width */
+    .about-image-col, 
+    .about-text-col {
+        width: 100%;
+        max-width: 100%; /* Remove desktop width restriction */
+        flex: none; /* Disable flex scaling */
+    }
+
+    /* 3. Center the Image */
+    .about-image-col {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    /* 4. Adjust Image Wrapper */
+    .about-image-wrapper {
+        width: 90%; /* prevent it from touching edges */
+        max-width: 400px; /* Limit size on mobile */
+        margin: 0 auto;
+    }
+
+    /* 5. Adjust the decorative blob */
+    .about-blob {
+        width: 150px;
+        height: 150px;
+        bottom: -20px;
+        right: 10px; /* Pull it inside so it doesn't overflow screen */
+    }
+
+    /* 6. Text Adjustments */
+    .main-heading {
+        font-size: 1.8rem; /* Smaller heading on mobile */
+    }
+
+    .about-text-col p {
+        text-align: justify; /* Optional: Makes paragraphs look cleaner */
+        font-size: 0.95rem;
+    }
+
+    /* Center the button */
+    .btn-red {
+        width: auto;
+        margin-top: 15px;
+    }
+}
+
 /* --- SERVICES SECTION --- */
 .services-section { padding: 80px 5%; background-color: #f8f9fa; text-align: center; }
 .section-title { color: #111; font-size: 2.5rem; margin-bottom: 60px; text-transform: uppercase; font-weight: 900; }
