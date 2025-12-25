@@ -76,6 +76,97 @@ nav.main-navbar {
     padding: 15px; position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
 }
 
+
+/* =========================================
+   MOBILE RESPONSIVE STYLES (STRONG FIX)
+   (Max-width: 992px)
+========================================= */
+@media screen and (max-width: 992px) {
+
+    /* 1. Navbar Container */
+    nav.main-navbar {
+        justify-content: space-between;
+        padding: 0 20px;
+        min-height: 60px;
+    }
+
+    /* 2. Toggle Button */
+    .mobile-toggle {
+        display: block;
+        z-index: 1002;
+    }
+
+    /* 3. The Menu Drawer */
+    ul.nav-links {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: #d32f2f;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-top: 10px;
+        overflow-y: auto;
+        transition: left 0.4s ease;
+    }
+
+    ul.nav-links.active {
+        left: 0;
+    }
+
+    /* 4. List Items (Force Block Layout) */
+    ul.nav-links > li {
+        width: 100%;
+        /* "initial" resets the property completely */
+        height: auto !important; 
+        display: block !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* 5. Links & Buttons */
+    ul.nav-links > li > a, 
+    .dropbtn {
+        width: 100%;
+        height: auto; /* Reset desktop height */
+        justify-content: flex-start;
+        padding: 15px 25px;
+        text-align: left;
+    }
+
+    /* 6. Dropdown Container (THE FIX) */
+    /* We use 'ul.nav-links .dropdown-content' to be more specific than desktop */
+    ul.nav-links .dropdown-content {
+        position: static !important; /* Force it to sit INSIDE the list */
+        float: none !important;
+        display: none;
+        width: 100%;
+        box-shadow: none;
+        background-color: rgba(0,0,0,0.2);
+        border-top: none;
+        padding: 0;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+    }
+
+    /* 7. Show Dropdown */
+    li.dropdown.active .dropdown-content {
+        display: block !important;
+    }
+
+    /* 8. Sub-links */
+    .dropdown-content a {
+        padding: 12px 0 12px 50px;
+        font-size: 14px;
+        color: #fff;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+}
+
+
+
 /* --- HERO SLIDER --- */
 .slider-container {
     position: relative; width: 100%; height: 85vh; 
