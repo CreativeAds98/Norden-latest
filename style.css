@@ -324,17 +324,106 @@ nav.main-navbar {
 .service-card:nth-child(3) { animation-delay: 0.5s; }
 .service-card:nth-child(4) { animation-delay: 0.7s; }
 
-/* --- TRACK RECORD --- */
+/* --- Main Section Container --- */
 .track-record {
-    background-color: var(--primary-color); padding: 60px 5%; color: #fff; text-align: center;
+    padding: 80px 20px;
+    background-color: #f8f9fa; /* Light gray background for contrast */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
 }
+
+/* --- The Grid Layout --- */
 .track-grid {
-    display: flex; justify-content: space-around; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; gap: 40px;
+    display: grid;
+    /* Creates columns that automatically fit, minimum 220px wide */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the grid horizontally */
 }
-.track-item { flex: 1; min-width: 200px; }
-.track-item i { font-size: 3rem; margin-bottom: 15px; color: rgba(255,255,255,0.8); }
-.track-number { font-size: 3rem; font-weight: 900; display: block; margin-bottom: 5px; font-family: 'Montserrat', sans-serif; }
-.track-label { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+
+/* --- Individual Track Item Card --- */
+.track-item {
+    background: #ffffff;
+    padding: 40px 25px;
+    border-radius: 15px; /* Smooth rounded corners */
+    text-align: center;
+    /* Soft initial shadow */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* Smooth transition for hover effects */
+    transition: all 0.4s ease;
+    border-bottom: 3px solid transparent; /* Preps for hover border */
+    
+    /* Setup for Entrance Animation */
+    opacity: 0;
+    /* Name | Duration | Timing function | Fill mode */
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* --- Hover Effect on the Card --- */
+.track-item:hover {
+    transform: translateY(-15px); /* Lifts the card up */
+    box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2); /* Stronger, blue-tinted shadow */
+    border-bottom: 3px solid #3498db; /* Blue border appears at bottom */
+}
+
+/* --- Icon Styling (The "Bubble") --- */
+.track-item i {
+    display: inline-block;
+    font-size: 36px;
+    color: #3498db; /* Accent color */
+    background: rgba(52, 152, 219, 0.1); /* Light blue transparent background */
+    width: 90px;
+    height: 90px;
+    line-height: 90px; /* Centers icon vertically in the circle */
+    border-radius: 50%; /* Makes it a perfect circle */
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+}
+
+/* --- Hover Effect on the Icon --- */
+.track-item:hover i {
+    background: #3498db; /* Turns solid blue */
+    color: #ffffff; /* Icon turns white */
+    transform: rotateY(360deg); /* A cool 3D spin effect */
+}
+
+/* --- Typography Styling --- */
+.track-number {
+    display: block;
+    font-size: 3.5rem; /* Large, prominent number */
+    font-weight: 800;
+    color: #2c3e50; /* Dark slate color */
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.track-label {
+    font-size: 1.1rem;
+    color: #7f8c8d; /* Medium gray color */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Entrance Animations --- */
+
+/* Define the animation keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px); /* Start slightly lower */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End in final position */
+    }
+}
+
+/* Add delays to create a staggered "waterfall" loading effect */
+.track-item:nth-child(1) { animation-delay: 0.1s; }
+.track-item:nth-child(2) { animation-delay: 0.3s; }
+.track-item:nth-child(3) { animation-delay: 0.5s; }
+.track-item:nth-child(4) { animation-delay: 0.7s; }
 
 /* --- CLIENT REVIEWS (SLIDER CAROUSEL) --- */
 .reviews-section {
