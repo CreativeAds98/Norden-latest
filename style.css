@@ -330,7 +330,7 @@ nav.main-navbar {
 .track-record {
     padding: 80px 20px;
     background-color: #f8f9fa; /* Light gray background for contrast */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* --- The Grid Layout --- */
@@ -425,8 +425,6 @@ nav.main-navbar {
 .track-item:nth-child(1) { animation-delay: 0.1s; }
 .track-item:nth-child(2) { animation-delay: 0.3s; }
 .track-item:nth-child(3) { animation-delay: 0.5s; }
-.track-item:nth-child(4) { animation-delay: 0.7s; }
-
 
 
 /* --- CLIENT REVIEWS (SLIDER CAROUSEL) --- */
