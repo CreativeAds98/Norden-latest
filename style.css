@@ -546,7 +546,7 @@ nav.main-navbar {
    Footer Styles
 ============================ */
 .site-footer {
-    background-color: #1a1a1a; /* Dark Background */
+    background-color: #534040; /* Dark Background */
     color: #b0b0b0; /* Light Grey Text */
     padding: 60px 0 20px 0;
     font-family: sans-serif;
@@ -574,7 +574,7 @@ nav.main-navbar {
     height: 50px; /* Adjust height based on your actual logo */
     width: auto;
     margin-bottom: 20px;
-    filter: brightness(4.2); /* Slight brightness boost if logo is dark */
+   /* filter: brightness(4.2);  Slight brightness boost if logo is dark */
 }
 
 .footer-desc {
