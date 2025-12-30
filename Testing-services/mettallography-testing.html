@@ -22,7 +22,27 @@
             color: white;
             text-align: center;
         }
-        .page-header h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Default Desktop Style */
+            .page-header h1 { 
+                font-size: 3rem; 
+                text-transform: uppercase; 
+                letter-spacing: 2px; 
+                padding: 0 15px; /* Adds space so text doesn't touch edges */
+            }
+
+            /* Mobile Responsive Style */
+            @media (max-width: 768px) {
+                .page-header {
+                    height: 200px; /* Optional: Make the banner shorter on mobile */
+                }
+                
+                .page-header h1 {
+                    font-size: 1.8rem; /* Smaller font for mobile */
+                    letter-spacing: 1px;
+                    line-height: 1.3; /* Better spacing between lines */
+                }
+            }
 
         /* Service Layout */
         .service-details { padding: 80px 10%; max-width: 1300px; margin: 0 auto; }
