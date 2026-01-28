@@ -262,34 +262,76 @@
 
         <div class="contact-form-col">
             <h2>Send Us a Message</h2>
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
-                </div>
+                <form action="https://api.web3forms.com/submit" method="POST">
 
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
-                </div>
+                    <!-- Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="82ddfa77-cc30-4b61-8cb5-2e5a3ede8950">
 
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
-                </div>
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name"
+                            class="form-control" 
+                            placeholder="Enter your full name" 
+                            required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" class="form-control" placeholder="Inquiry about...">
-                </div>
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email"
+                            class="form-control" 
+                            placeholder="Enter your email" 
+                            required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" class="form-control" placeholder="How can we help you?"></textarea>
-                </div>
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone"
+                            class="form-control" 
+                            placeholder="Enter your phone number">
+                    </div>
 
-                <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane" style="margin-left:8px;"></i></button>
-            </form>
+                    <!-- Subject -->
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input 
+                            type="text" 
+                            id="subject" 
+                            name="subject"
+                            class="form-control" 
+                            placeholder="Inquiry about...">
+                    </div>
+
+                    <!-- Message -->
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea 
+                            id="message" 
+                            name="message"
+                            class="form-control" 
+                            placeholder="How can we help you?"
+                            required></textarea>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="submit-btn">
+                        Send Message 
+                        <i class="fas fa-paper-plane" style="margin-left:8px;"></i>
+                    </button>
+
+                </form>
+
         </div>
 
     </div>
